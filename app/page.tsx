@@ -1,101 +1,115 @@
-import Image from "next/image";
+import React from 'react'
+import GoogleButton from './GoogleButton'
+import Image from 'next/image'
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+    <div className="min-h-screen w-full bg-[#E1ECF3] flex items-center justify-center p-4 relative">
+      <div className="absolute top-4 left-4">
+        <Image 
+          src="/logo.svg"
+          alt="Logo"
+          width={120}
+          height={40}
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+      <div className="flex flex-col items-center">
+        <div className="bg-white rounded-xl shadow-sm p-8 w-full max-w-md">
+          <div className="flex justify-center mb-6">
+            <Image 
+              src="/binaryx.png"
+              alt="Binaryx Logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 rounded-full object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+            Welcome to Binaryx
+          </h1>
+          <p className="text-[#B5BCC9] text-center mb-8">
+            Sign Up or Log In with your email or wallet
+          </p>
+          
+          <form className="space-y-4">
+            <div>
+              <label 
+                htmlFor="email" 
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                placeholder="name@domain.com"
+              />
+            </div>
+            
+            <button
+              type="submit"
+              className="w-full bg-[#99D6E5] text-white py-2 px-4 rounded-md hover:bg-[#88c5d4] transition-colors duration-200"
+            >
+              Continue with Email
+            </button>
+          </form>
+
+          <div className="flex items-center my-6">
+            <div className="flex-1 border-t border-gray-300"></div>
+            <span className="px-4 text-gray-500 text-sm">OR</span>
+            <div className="flex-1 border-t border-gray-300"></div>
+          </div>
+
+          <div className="flex justify-center space-x-4">
+            <GoogleButton />
+            <button className="w-12 h-12 rounded-full border border-gray-300 bg-white hover:bg-gray-50 flex items-center justify-center transition-colors duration-200">
+              <Image 
+                src="/wallet.png"
+                alt="Wallet"
+                width={24}
+                height={24}
+                className="w-6 h-6"
+              />
+            </button>
+            <button className="w-12 h-12 rounded-full border border-gray-300 bg-white hover:bg-gray-50 flex items-center justify-center transition-colors duration-200">
+              <Image 
+                src="/metamask.png"
+                alt="MetaMask"
+                width={24}
+                height={24}
+                className="w-6 h-6"
+              />
+            </button>
+          </div>
+
+          <p className="text-sm text-[#B5BCC9] text-center mt-6">
+            By connecting your wallet, you agree to our{' '}
+            <a href="#" className="text-[#09ADCC] hover:text-[#0897b2]">
+              Terms of Service
+            </a>{' '}
+            and our{' '}
+            <a href="#" className="text-[#09ADCC] hover:text-[#0897b2]">
+              Privacy Policy
+            </a>
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+        <div className="flex space-x-6 mt-4 text-sm text-gray-500">
+          <span className="hover:text-gray-700 cursor-pointer">Terms</span>
+          <span className="hover:text-gray-700 cursor-pointer">Privacy Policy</span>
+          <span className="hover:text-gray-700 cursor-pointer">Cookies Policy</span>
+          <span className="hover:text-gray-700 cursor-pointer">Back to App</span>
+        </div>
+      </div>
+
+      <div className="absolute bottom-4 left-4 text-sm text-gray-500">
+        2024 © Binaryx. All rights reserved
+      </div>
     </div>
-  );
+  )
 }
+
+export default Page
